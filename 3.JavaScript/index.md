@@ -1,13 +1,14 @@
 # <center>JavaScript</center>
 ## 一、JavaScript
 ## 二、ES6
+### [1、proxy](./proxy.md)
 ## 三、正则表达式
 ## 四、手写源码
 ### [1、手写Promise](./Promise.md)
 ### [2、手写防抖](./防抖.md)
 ### [3、手写节流](./节流.md)
 
-## 资料
+## 五、资料
 1. [📚]JavaScript高级程序设计（必看）：https://book.douban.com/subject/10546125/
 2. [📚]高性能JavaScript：https://book.douban.com/subject/5362856/
 3. 现代JavaScript教程：https://zh.javascript.info/
