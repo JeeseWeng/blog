@@ -1,14 +1,12 @@
 # <center>前端工程化架构</center>
 
-## 一、项目结构
-
-### [1、前端路由原理解析和实现](./前端路由原理解析和实现/前端路由原理解析和实现.md)
-
-## 二、webpack 配置
+## 一、webpack 配置
 
 ### [1、模块包装](./前端路由原理解析和实现/模块包装.md)
 
 ### [2、productionSourceMap 设置](./前端路由原理解析和实现/productionSourceMap设置.md)
+
+### [3、Webpack 打包原理](./Webpack打包原理/Webpack打包原理.md)
 
 ## 三、vue 配置
 
