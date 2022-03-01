@@ -1,4 +1,4 @@
-# <center>前端工程化架构</center>
+# <center>前端工程化</center>
 
 ## 一、webpack 配置
 
