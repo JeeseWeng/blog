@@ -12,4 +12,6 @@
 
 ## 二、部署
 
-[1、k8s 和 docker 区别](./部署/k8s和docker区别.md)
+[1. k8s 和 docker 区别](./部署/k8s和docker区别.md)
+
+[2. 什么是 CICD](./部署/什么是CICD.md)
