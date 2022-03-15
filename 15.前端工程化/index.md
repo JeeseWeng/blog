@@ -19,7 +19,3 @@
 ## 四、模块
 
 ### [1. ESM 规范](ESM.md)
-
-## 五、DevOps 和 CI/CD
-
-### [1. DevOps 和 CI/CD.md](DevOps和CI&CD.md)

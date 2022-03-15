@@ -23,7 +23,7 @@ module.exports = {
     // 选项
 }
 ```
-
+！
 ### (一) 配置选项
 
 #### 1. publicPath

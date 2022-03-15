@@ -30,10 +30,13 @@
   }
 
 ```
-![dev](./1-1.png 'dev')
+
+![dev](../../images/1-1.png)
+
 ### Cookies 解决方案
-当项目开启单点登陆时，需要在接口加上cookies和token
-![cookie](./1-2.png 'cookie')
+
+当项目开启单点登陆时，需要在接口加上 cookies 和 token
+![cookie](../../images/1-2.png "cookie")
 
 ## 二、使用 vue-cli 3.x 脚手架开发配置
 
@@ -52,7 +55,9 @@ module.exports = {
 }
 
 ```
-![cookie](./2-1.png 'cookie')
+
+![cookie](../../images/2-1.png "cookie")
+
 ### cookies 解决方案
 
 解决 Cookies 只需要在登录时将 Vue CLI Proxy 代理的 API 返回头部中 Cookies 写到本地域下。之后再请求其他接口时，读取请求头里面的 Cookies 的值，并附带在实际请求接口的头部，就完成了我们的设想。
@@ -85,4 +90,5 @@ module.exports = {
 }
 
 ```
-![cookie](./2-2.png 'cookie')
+
+![cookie](../../images/2-2.png "cookie")
