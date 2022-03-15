@@ -1,3 +1,24 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+- [2022 年十大 JavaScript 框架](#2022-年十大-javascript-框架)
+  - [一、什么是 JavaScript 框架?](#一什么是-javascript-框架)
+  - [二、2022 年十大 JavaScript 框架](#二2022-年十大-javascript-框架)
+    - [1. React.js](#1-reactjs)
+    - [2. jQuery](#2-jquery)
+    - [3. Express](#3-express)
+    - [4. Angular](#4-angular)
+    - [5. Vue.js](#5-vuejs)
+    - [6. Angular.js](#6-angularjs)
+    - [7. Svelte](#7-svelte)
+    - [8. Next.js](#8-nextjs)
+    - [9. Ember.js](#9-emberjs)
+    - [10. Meteor](#10-meteor)
+  - [结 论](#结-论)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # 2022 年十大 JavaScript 框架
 
 JavaScript 支持函数式、事件驱动式和命令式编程风格，因此它是一种多模式语言。JavaScript 是一种即时编译的高级语言，遵循 ECMA-script 规范。JavaScript 是万维网的核心。统计数据表明，超过 97.7% 的网站已经将其用于前端开发。但是由于 JavaScript 框架数量庞大，可能你很难从中挑选出一款理想的框架用于你的网站或 Web 应用程序。所以我们编写了本文，帮你挑选出了十大 JavaScript 框架。
