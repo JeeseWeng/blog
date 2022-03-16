@@ -1,4 +1,4 @@
-# Jesse's blog.
+# <center>Jesse's blog.</center>
 
 ## 前端知识
 
