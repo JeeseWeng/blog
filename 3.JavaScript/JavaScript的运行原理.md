@@ -1,4 +1,48 @@
-# JavaScript 的运行原理
+# <center>JavaScript 的运行原理</center>
+
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+- [JavaScript 的运行原理](#javascript-%E7%9A%84%E8%BF%90%E8%A1%8C%E5%8E%9F%E7%90%86)
+  - [一、解释型和编译型语言](#%E4%B8%80%E8%A7%A3%E9%87%8A%E5%9E%8B%E5%92%8C%E7%BC%96%E8%AF%91%E5%9E%8B%E8%AF%AD%E8%A8%80)
+    - [1. 编译型语言](#1-%E7%BC%96%E8%AF%91%E5%9E%8B%E8%AF%AD%E8%A8%80)
+    - [2. 解释型语言](#2-%E8%A7%A3%E9%87%8A%E5%9E%8B%E8%AF%AD%E8%A8%80)
+    - [3. 最后再来看看，谁来编译？谁来解释？谁来执行？](#3-%E6%9C%80%E5%90%8E%E5%86%8D%E6%9D%A5%E7%9C%8B%E7%9C%8B%E8%B0%81%E6%9D%A5%E7%BC%96%E8%AF%91%E8%B0%81%E6%9D%A5%E8%A7%A3%E9%87%8A%E8%B0%81%E6%9D%A5%E6%89%A7%E8%A1%8C)
+  - [二、JavaScript 引擎](#%E4%BA%8Cjavascript-%E5%BC%95%E6%93%8E)
+  - [三、EcmaScript 和 JavaScript 引擎的关系](#%E4%B8%89ecmascript-%E5%92%8C-javascript-%E5%BC%95%E6%93%8E%E7%9A%84%E5%85%B3%E7%B3%BB)
+    - [1. ECMAScript](#1-ecmascript)
+    - [2. JavaScript 引擎](#2-javascript-%E5%BC%95%E6%93%8E)
+  - [四、运行时环境](#%E5%9B%9B%E8%BF%90%E8%A1%8C%E6%97%B6%E7%8E%AF%E5%A2%83)
+    - [Chrome 示例（Chrome 多进程架构）](#chrome-%E7%A4%BA%E4%BE%8Bchrome-%E5%A4%9A%E8%BF%9B%E7%A8%8B%E6%9E%B6%E6%9E%84)
+      - [1. 浏览器进程：](#1-%E6%B5%8F%E8%A7%88%E5%99%A8%E8%BF%9B%E7%A8%8B)
+      - [2. 插件进程：](#2-%E6%8F%92%E4%BB%B6%E8%BF%9B%E7%A8%8B)
+      - [3. GPU 进程：](#3-gpu-%E8%BF%9B%E7%A8%8B)
+      - [4. 渲染进程：](#4-%E6%B8%B2%E6%9F%93%E8%BF%9B%E7%A8%8B)
+    - [浏览器内核](#%E6%B5%8F%E8%A7%88%E5%99%A8%E5%86%85%E6%A0%B8)
+      - [1. GUI 渲染线程：](#1-gui-%E6%B8%B2%E6%9F%93%E7%BA%BF%E7%A8%8B)
+      - [2. 定时触发器线程：](#2-%E5%AE%9A%E6%97%B6%E8%A7%A6%E5%8F%91%E5%99%A8%E7%BA%BF%E7%A8%8B)
+      - [3. 事件触发线程：](#3-%E4%BA%8B%E4%BB%B6%E8%A7%A6%E5%8F%91%E7%BA%BF%E7%A8%8B)
+      - [4. 异步 http 请求线程：](#4-%E5%BC%82%E6%AD%A5-http-%E8%AF%B7%E6%B1%82%E7%BA%BF%E7%A8%8B)
+      - [5. JavaScript 引擎线程：](#5-javascript-%E5%BC%95%E6%93%8E%E7%BA%BF%E7%A8%8B)
+  - [五、为啥是单线程](#%E4%BA%94%E4%B8%BA%E5%95%A5%E6%98%AF%E5%8D%95%E7%BA%BF%E7%A8%8B)
+    - [问题 1：为什么 JavaScript 不设计成多个线程呢？这样不是效率更高？](#%E9%97%AE%E9%A2%98-1%E4%B8%BA%E4%BB%80%E4%B9%88-javascript-%E4%B8%8D%E8%AE%BE%E8%AE%A1%E6%88%90%E5%A4%9A%E4%B8%AA%E7%BA%BF%E7%A8%8B%E5%91%A2%E8%BF%99%E6%A0%B7%E4%B8%8D%E6%98%AF%E6%95%88%E7%8E%87%E6%9B%B4%E9%AB%98)
+    - [问题 2：那么既然 JavaScript 本身被设计为单线程，为何还会有像 WebWorker 这样的多线程 API 呢？](#%E9%97%AE%E9%A2%98-2%E9%82%A3%E4%B9%88%E6%97%A2%E7%84%B6-javascript-%E6%9C%AC%E8%BA%AB%E8%A2%AB%E8%AE%BE%E8%AE%A1%E4%B8%BA%E5%8D%95%E7%BA%BF%E7%A8%8B%E4%B8%BA%E4%BD%95%E8%BF%98%E4%BC%9A%E6%9C%89%E5%83%8F-webworker-%E8%BF%99%E6%A0%B7%E7%9A%84%E5%A4%9A%E7%BA%BF%E7%A8%8B-api-%E5%91%A2)
+    - [好处：](#%E5%A5%BD%E5%A4%84)
+  - [六、调用堆栈的执行过程](#%E5%85%AD%E8%B0%83%E7%94%A8%E5%A0%86%E6%A0%88%E7%9A%84%E6%89%A7%E8%A1%8C%E8%BF%87%E7%A8%8B)
+  - [七、JavaScript 语言的解析执行过程](#%E4%B8%83javascript-%E8%AF%AD%E8%A8%80%E7%9A%84%E8%A7%A3%E6%9E%90%E6%89%A7%E8%A1%8C%E8%BF%87%E7%A8%8B)
+    - [（一）解析执行过程](#%E4%B8%80%E8%A7%A3%E6%9E%90%E6%89%A7%E8%A1%8C%E8%BF%87%E7%A8%8B)
+      - [1. 解析器（Parser）：负责将 JavaScript 代码转换成 AST 抽象语法树。](#1-%E8%A7%A3%E6%9E%90%E5%99%A8parser%E8%B4%9F%E8%B4%A3%E5%B0%86-javascript-%E4%BB%A3%E7%A0%81%E8%BD%AC%E6%8D%A2%E6%88%90-ast-%E6%8A%BD%E8%B1%A1%E8%AF%AD%E6%B3%95%E6%A0%91)
+      - [2. 解释器（Ignition）：负责将 AST 转换为字节码，并收集编译器需要的优化编译信息。](#2-%E8%A7%A3%E9%87%8A%E5%99%A8ignition%E8%B4%9F%E8%B4%A3%E5%B0%86-ast-%E8%BD%AC%E6%8D%A2%E4%B8%BA%E5%AD%97%E8%8A%82%E7%A0%81%E5%B9%B6%E6%94%B6%E9%9B%86%E7%BC%96%E8%AF%91%E5%99%A8%E9%9C%80%E8%A6%81%E7%9A%84%E4%BC%98%E5%8C%96%E7%BC%96%E8%AF%91%E4%BF%A1%E6%81%AF)
+      - [3. 编译器（TurboFan）：利用解释器收集到的信息，将字节码转换为优化的机器码。](#3-%E7%BC%96%E8%AF%91%E5%99%A8turbofan%E5%88%A9%E7%94%A8%E8%A7%A3%E9%87%8A%E5%99%A8%E6%94%B6%E9%9B%86%E5%88%B0%E7%9A%84%E4%BF%A1%E6%81%AF%E5%B0%86%E5%AD%97%E8%8A%82%E7%A0%81%E8%BD%AC%E6%8D%A2%E4%B8%BA%E4%BC%98%E5%8C%96%E7%9A%84%E6%9C%BA%E5%99%A8%E7%A0%81)
+    - [（二）词法分析和语法分析](#%E4%BA%8C%E8%AF%8D%E6%B3%95%E5%88%86%E6%9E%90%E5%92%8C%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90)
+      - [1. 词法分析就是将字符序列转换为标记（token）序列的过程。](#1-%E8%AF%8D%E6%B3%95%E5%88%86%E6%9E%90%E5%B0%B1%E6%98%AF%E5%B0%86%E5%AD%97%E7%AC%A6%E5%BA%8F%E5%88%97%E8%BD%AC%E6%8D%A2%E4%B8%BA%E6%A0%87%E8%AE%B0token%E5%BA%8F%E5%88%97%E7%9A%84%E8%BF%87%E7%A8%8B)
+      - [2. 语法分析 将这些 token 根据语法规则转换为 AST：](#2-%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90-%E5%B0%86%E8%BF%99%E4%BA%9B-token-%E6%A0%B9%E6%8D%AE%E8%AF%AD%E6%B3%95%E8%A7%84%E5%88%99%E8%BD%AC%E6%8D%A2%E4%B8%BA-ast)
+    - [（三）字节码和机器码](#%E4%B8%89%E5%AD%97%E8%8A%82%E7%A0%81%E5%92%8C%E6%9C%BA%E5%99%A8%E7%A0%81)
+      - [字节码和机器码原理：](#%E5%AD%97%E8%8A%82%E7%A0%81%E5%92%8C%E6%9C%BA%E5%99%A8%E7%A0%81%E5%8E%9F%E7%90%86)
+      - [即时编译原理：](#%E5%8D%B3%E6%97%B6%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86)
+  - [八、最后](#%E5%85%AB%E6%9C%80%E5%90%8E)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 回顾一下，JavaScript 的真正的工作原理，里面不涉及深入的源码解析，只是希望能够用最简单的描述让大家弄明白整个过程，主要分为下面几个部分：
 
@@ -80,7 +124,7 @@ JavaScript 引擎并不能孤立运行，它需要一个好的运行时环境才
 
 那么 JavaScript 引擎怎么配合这些能力在运行时环境中发挥作用呢？我们拿 Chrome 来举个例子。
 
-### Chrome 示例
+### Chrome 示例（Chrome 多进程架构）
 
 ![](../images/JavaScript运行原理5.png)
 
@@ -191,7 +235,7 @@ JavaScript 是一种单线程编程语言，这意味着它只有一个调用堆
 
 我们常常提到的词法分析和语法分析的过程就是发生在解析器（Parser）执行阶段。
 
-#### 1. 词法分析就是将字符序列转换为标记（token）序列的过程。
+#### 1. 词法分析：就是将字符序列转换为标记（token）序列的过程。
 
 所谓 token ，就是源文件中不可再进一步分割的一串字符，类似于英语中单词，或汉语中的词。
 
@@ -216,7 +260,7 @@ const 公众号 = '微信公号名称';
 - =（赋值操操作算符）
 - '微信公号名称'（字符串常数）
 
-#### 2. 语法分析 将这些 token 根据语法规则转换为 AST：
+#### 2. 语法分析：将这些 token 根据语法规则转换为 AST：
 
 ```
 {
