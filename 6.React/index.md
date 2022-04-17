@@ -2,7 +2,7 @@
 
 ## 一、官网文档使用
 
-### （一）React
+### [（一）React](官网文档使用.md)
 
 ### （二）React-dom
 
@@ -14,9 +14,11 @@
 
 ### （五）dva
 
-### （六）ant-design
+### [（六）Umi](umi/index.md)
 
-### （七）Typescript
+### （七）ant-design
+
+### （八）Typescript
 
 ## 二、原理解析
 
