@@ -67,5 +67,3 @@
 ## 其他
 
 ### [一、在 GitHub 上搭建个人博客](其他/1.在GitHub上搭建个人博客/index.md)
-
-![](../blog/images/前端知识图谱.awebp)
