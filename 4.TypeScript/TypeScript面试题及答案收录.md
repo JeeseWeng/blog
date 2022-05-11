@@ -1,34 +1,43 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+**Table of Contents** _generated with [DocToc](https://github.com/thlorenz/doctoc)_
+
+- [TypeScript 面试题及答案收录](#typescript-面试题及答案收录)
+  - [1. 什么是 TypeScript？](#1-什么是-typescript)
+  - [2. 为什么要使用 TypeScript ? TypeScript 相对于 JavaScript 的优势是什么？](#2-为什么要使用-typescript--typescript-相对于-javascript-的优势是什么)
+  - [3. TypeScript 中 const 和 readonly 的区别？枚举和常量枚举的区别？接口和类型别名的区别？](#3-typescript-中-const-和-readonly-的区别枚举和常量枚举的区别接口和类型别名的区别)
+  - [4. TypeScript 中 any 类型的作用是什么？](#4-typescript-中-any-类型的作用是什么)
+  - [5. TypeScript 中 any、never、unknown、null & undefined 和 void 有什么区别？](#5-typescript-中-anyneverunknownnull--undefined-和-void-有什么区别)
+  - [6. TypeScript 中 interface 可以给 Function / Array / Class（Indexable）做声明吗？](#6-typescript-中-interface-可以给-function--array--classindexable做声明吗)
+  - [7. TypeScript 中可以使用 String、Number、Boolean、Symbol、Object 等给类型做声明吗？](#7-typescript-中可以使用-stringnumberbooleansymbolobject-等给类型做声明吗)
+  - [8. TypeScript 中的 this 和 JavaScript 中的 this 有什么差异？](#8-typescript-中的-this-和-javascript-中的-this-有什么差异)
+  - [9. TypeScript 中使用 Union Types 时有哪些注意事项？](#9-typescript-中使用-union-types-时有哪些注意事项)
+  - [10. TypeScript 如何设计 Class 的声明？](#10-typescript-如何设计-class-的声明)
+  - [11. TypeScript 中如何联合枚举类型的 Key?](#11-typescript-中如何联合枚举类型的-key)
+  - [12. TypeScript 中 type 和 interface 的区别?](#12-typescript-中-type-和-interface-的区别)
+  - [13. TypeScript 中 ?.、??、!、!.、\_、\*\* 等符号的含义？](#13-typescript-中-_-等符号的含义)
+  - [14.抗变、双变、协变和逆变的简单理解？](#14抗变双变协变和逆变的简单理解)
+    - [逆变接口](#逆变接口)
+    - [协变接口](#协变接口)
+    - [总结:](#总结)
+  - [15. 简单介绍一下 TypeScript 模块的加载机制？](#15-简单介绍一下-typescript-模块的加载机制)
+  - [16. 简单聊聊你对 TypeScript 类型兼容性的理解？](#16-简单聊聊你对-typescript-类型兼容性的理解)
+  - [17. TypeScript 中对象展开会有什么副作用吗？](#17-typescript-中对象展开会有什么副作用吗)
+  - [18. TypeScript 中 interface、type、enum 声明有作用域的功能吗？](#18-typescript-中-interfacetypeenum-声明有作用域的功能吗)
+  - [19. TypeScript 中同名的 interface 或者同名的 interface 和 class 可以合并吗？](#19-typescript-中同名的-interface-或者同名的-interface-和-class-可以合并吗)
+  - [20. 如何使 TypeScript 项目引入并识别编译为 JavaScript 的 npm 库包？](#20-如何使-typescript-项目引入并识别编译为-javascript-的-npm-库包)
+  - [21. TypeScript 的 tsconfig.json 中有哪些配置项信息？](#21-typescript-的-tsconfigjson-中有哪些配置项信息)
+  - [22. TypeScript 中如何设置模块导入的路径别名？](#22-typescript-中如何设置模块导入的路径别名)
+  - [23. declare，declare global 是什么？](#23-declaredeclare-global-是什么)
+  - [24. 对 TypeScript 类中成员的 public、private、protected、readonly 修饰符的理解？](#24-对-typescript-类中成员的-publicprivateprotectedreadonly-修饰符的理解)
+  - [25. keyof 和 typeof 关键字的作用？](#25-keyof-和-typeof-关键字的作用)
+  - [26. 简述工具类型 Exclude、Omit、Merge、Compute、Intersection、Overwrite 的作用。](#26-简述工具类型-excludeomitmergecomputeintersectionoverwrite-的作用)
+  - [27. 数组定义的两种方式:type、interface](#27-数组定义的两种方式typeinterface)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # TypeScript 面试题及答案收录
-
-## 目录
-
-1. 什么是 TypeScript？
-2. 为什么要使用 TypeScript ? TypeScript 相对于 JavaScript 的优势是什么？
-3. TypeScript 中 const 和 readonly 的区别？枚举和常量枚举的区别？接口和类型别名的区别？
-4. TypeScript 中 any 类型的作用是什么？
-5. TypeScript 中 any、never、unknown、null & undefined 和 void 有什么区别？
-6. TypeScript 中 interface 可以给 Function / Array / Class（Indexable）做声明吗？
-7. TypeScript 中可以使用 String、Number、Boolean、Symbol、Object 等给类型做声明吗？
-8. TypeScript 中的 this 和 JavaScript 中的 this 有什么差异？
-9. TypeScript 中使用 Union Types 时有哪些注意事项？
-10. TypeScript 如何设计 Class 的声明？
-11. TypeScript 中如何联合枚举类型的 Key?
-12. TypeScript 中 type 和 interface 的区别?
-13. TypeScript 中 ?.、??、!、!.、\_、\*\* 等符号的含义？
-14.
-15. 简单介绍一下 TypeScript 模块的加载机制？
-16. 简单聊聊你对 TypeScript 类型兼容性的理解？抗变、双变、协变和逆变的简单理解？
-17. TypeScript 中对象展开会有什么副作用吗？
-18. TypeScript 中 interface、type、enum 声明有作用域的功能吗？
-19. TypeScript 中同名的 interface 或者同名的 interface 和 class 可以合并吗？
-20. 如何使 TypeScript 项目引入并识别编译为 JavaScript 的 npm 库包？
-21. TypeScript 的 tsconfig.json 中有哪些配置项信息？
-22. TypeScript 中如何设置模块导入的路径别名？
-23. declare,declare global 是什么？
-24. 对 TypeScript 类中成员的 public、private、protected、readonly 修饰符的理解？
-25. keyof 和 typeof 关键字的作用？
-26. 简述工具类型 Exclude、Omit、Merge、Intersection、Overwrite 的作用。
-27. 数组定义的两种方式
 
 ## 1. 什么是 TypeScript？
 
@@ -53,8 +62,8 @@ TypeScript 增加了静态类型，可以在开发人员编写脚本时检测错
    - 普通枚举会生成真实存在的对象。
    - 常量枚举不会生成真实存在的对象, 而是利用枚举成员的值直接 替换 使用到的地方。
    - 常量枚举只能使用常量枚举表达式，并且不同于常规的枚举，它们在编译阶段会被删除。 常量枚举成员在使用的地方会被内联进来。之所以可以这么做是因为，常量枚举不允许包含计算成员。
-3. 接口和类型别名的区别？  
-   两者都可以用来描述对象或函数的类型。与接口不同，类型别名还可以用于其他类型，如基本类型（原始值）、联合类型、元组。
+3. 接口（interface）和类型别名（type）的区别？  
+   两者都可以用来描述对象或函数的类型。与 interface 不同，type 还可以用于其他类型，如基本类型（原始值）、联合类型、元组。
 
 ## 4. TypeScript 中 any 类型的作用是什么？
 
