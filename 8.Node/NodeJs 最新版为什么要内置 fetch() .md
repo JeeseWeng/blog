@@ -2,7 +2,7 @@
 
 ## 前言
 
-Node.js 在最新版本中引入了 fetch(), fetch() 是一种流行的跨平台 HTTP 客户端 API，可在浏览器和 Web/Service Workers 中运行，目前在 v17.5.0 版本为试验性支持，也就是说，在今后的 LTS 版本中如果正式支持了，今后将不再需要额外的 HTTP 请求模块。
+Node.js 在最新版本 v17.5.0 中引入了 fetch(), fetch() 是一种流行的跨平台 HTTP 客户端 API，可在浏览器和 Web/Service Workers 中运行，目前在 v17.5.0 版本为试验性支持，也就是说，在今后的 LTS 版本中如果正式支持了，今后将不再需要额外的 HTTP 请求模块。
 
 ## fetch()是什么?
 
