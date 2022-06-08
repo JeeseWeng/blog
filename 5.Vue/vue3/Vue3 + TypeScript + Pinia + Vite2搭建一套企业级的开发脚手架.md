@@ -1,5 +1,7 @@
 # Vue3 + TypeScript + Pinia + Vite2 搭建一套企业级的开发脚手架
+
 ## 目录
+
 1. 搭建前准备
 2. Vue2 与 Vue3 的区别
 3. 介绍 vite
